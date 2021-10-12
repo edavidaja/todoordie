@@ -1,0 +1,45 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Todo Or Die
+
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/todoordie)](https://CRAN.R-project.org/package=todoordie)
+<!-- badges: end -->
+
+Write TODOs in Code That Ensure You Actually Do Them
+
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("edavidaja/todoordie")
+```
+## Example
+
+```{r example, error=TRUE}
+todoordie::after_date(2020, 01, 01)
+
+```
+
+## Prior art:
+
+[Ruby](https://github.com/searls/todo_or_die)  
+[Rust](https://github.com/davidpdrsn/todo-or-die)  
+[Python](https://github.com/achedeuzot/py-todo-or-die)  
+[Elixir](https://hex.pm/packages/credo_todo_or_die)  
+[Typescript](https://github.com/ngnijland/typescript-todo-or-die-plugin)  
