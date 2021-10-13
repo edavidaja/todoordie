@@ -32,8 +32,7 @@ devtools::install_github("edavidaja/todoordie")
 ## Example
 
 ```{r example, error=TRUE}
-todoordie::after_date(2020, 01, 01)
-
+todoordie::after_date("fix after conf 2021", "2021-01-21")
 ```
 
 ## Prior art:

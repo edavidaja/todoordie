@@ -24,8 +24,8 @@ devtools::install_github("edavidaja/todoordie")
 ## Example
 
 ``` r
-todoordie::after_date(2020, 01, 01)
-#> Error in todoordie::after_date(2020, 1, 1): is_after_date == 1 is not TRUE
+todoordie::after_date("fix after conf 2021", "2021-01-21")
+#> Error in todoordie::after_date("fix after conf 2021", "2021-01-21"): fix after conf 2021 was due on 2021-01-21
 ```
 
 ## Prior art:

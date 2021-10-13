@@ -1,22 +1,27 @@
 #' trigger error if after a certain date
 #'
-#' @param year year
-#' @param month month
-#' @param day day
+#' @param note explain yourself
+#' @param due_at an ISO-8601 formatted date
 #' @return the current date, invisibly
 #'
 #' @export
-after_date <- function(year, month, day) {
+after_date <- function(note, due_at) {
 
   current_date <- Sys.Date()
-  compare_date <- ISOdate(year, month, day) |> as.Date()
+  compare_date <- as.Date(due_at)
 
   is_after_date <-
-    difftime(compare_date, current_date, units = "days") |>
+    difftime(current_date, compare_date, units = "days") |>
     as.double() |>
     sign()
 
-  stopifnot(is_after_date == 1)
+  if (is_after_date == 1) {
+    stop(note, " was due on ", due_at)
+  }
+
+  if (is_after_date == 0) {
+    warning(note, " is due today.")
+  }
 
   invisible(current_date)
 }
