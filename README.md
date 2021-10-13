@@ -7,6 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/todoordie)](https://CRAN.R-project.org/package=todoordie)
+[![R-CMD-check](https://github.com/edavidaja/todoordie/workflows/R-CMD-check/badge.svg)](https://github.com/edavidaja/todoordie/actions)
 <!-- badges: end -->
 
 Write TODOs in Code That Ensure You Actually Do Them
