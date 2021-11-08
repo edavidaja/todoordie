@@ -8,6 +8,7 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/todoordie)](https://CRAN.R-project.org/package=todoordie)
 [![R-CMD-check](https://github.com/edavidaja/todoordie/workflows/R-CMD-check/badge.svg)](https://github.com/edavidaja/todoordie/actions)
+
 <!-- badges: end -->
 
 Write TODOs in Code That Ensure You Actually Do Them
@@ -22,11 +23,33 @@ You can install the development version from
 devtools::install_github("edavidaja/todoordie")
 ```
 
-## Example
+## Usage
+
+Use the functions directly:
 
 ``` r
 todoordie::after_date("fix after conf 2021", "2021-01-21")
 #> Error in todoordie::after_date("fix after conf 2021", "2021-01-21"): fix after conf 2021 was due on 2021-01-21
+```
+
+``` r
+todoordie::issue_closed("rewrite once dtplyr supports across()", "tidyverse/dtplyr#154")
+#> Error: 'issue_closed' is not an exported object from 'namespace:todoordie'
+```
+
+``` r
+todoordie::cran_version("can't use in production before 1.0 :eyeroll:", "plumber", "1.0.0")
+#> Error: 'cran_version' is not an exported object from 'namespace:todoordie'
+```
+
+If you’d prefer for them to live in your function documentation, you can
+also use them as roxgyen tags:
+
+``` r
+#' sketchy function 
+#'
+#' @todoordie after_date 2012-12-21 if we're not all dead make this less sketchy
+sketchy <- function() {}
 ```
 
 ## Prior art:

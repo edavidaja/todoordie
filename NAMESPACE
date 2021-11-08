@@ -2,6 +2,9 @@
 
 S3method(roxy_tag_parse,roxy_tag_todoordie)
 export(after_date)
+importFrom(httr,GET)
+importFrom(httr,content)
+importFrom(httr,stop_for_status)
 importFrom(roxygen2,roxy_tag_parse)
 importFrom(stringr,str_extract)
 importFrom(stringr,str_split)
