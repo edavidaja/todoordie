@@ -2,6 +2,8 @@
 #'
 #' @param note explain yourself
 #' @param repo a github repository, in remotes shorthand
+#'
+#' @export
 issue_closed <- function(note, repo) {
 
   repository <- remotes::parse_repo_spec(repo)
@@ -31,6 +33,8 @@ issue_closed <- function(note, repo) {
 #'
 #' @param note explain yourself
 #' @param repo a github repository, in remotes shorthand
+#'
+#' @export
 pr_merged <- function(note, repo) {
 
   repository <- remotes::parse_repo_spec(repo)

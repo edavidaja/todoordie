@@ -34,12 +34,12 @@ todoordie::after_date("fix after conf 2021", "2021-01-21")
 
 ``` r
 todoordie::issue_closed("rewrite once dtplyr supports across()", "tidyverse/dtplyr#154")
-#> Error: 'issue_closed' is not an exported object from 'namespace:todoordie'
+#> Error in todoordie::issue_closed("rewrite once dtplyr supports across()", : rewrite once dtplyr supports across()has been resolved
 ```
 
 ``` r
 todoordie::cran_version("can't use in production before 1.0 :eyeroll:", "plumber", "1.0.0")
-#> Error: 'cran_version' is not an exported object from 'namespace:todoordie'
+#> Error in todoordie::cran_version("can't use in production before 1.0 :eyeroll:", : can't use in production before 1.0 :eyeroll:has exceeded version1.0.0
 ```
 
 If you’d prefer for them to live in your function documentation, you can
