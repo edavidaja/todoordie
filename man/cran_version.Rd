@@ -13,6 +13,9 @@ cran_version(note, package, version)
 
 \item{version}{version to compare}
 }
+\value{
+the version number of the package on cran, invisibly
+}
 \description{
 check whether cran version is greater than stated
 }

@@ -17,4 +17,7 @@ Imports:
     stringr,
     roxygen2,
     purrr,
-    gh
+    gh,
+    httr,
+    remotes,
+    glue
