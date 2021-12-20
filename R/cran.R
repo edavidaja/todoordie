@@ -27,7 +27,6 @@ pkg_version <- function(info) {
 #'
 #' @export
 cran_version <- function(note, package, version) {
-
   package_info <- pkg_info(package)
   package_version <- pkg_version(package_info)
 
@@ -36,5 +35,4 @@ cran_version <- function(note, package, version) {
   }
 
   return(invisible(package_version))
-
 }
