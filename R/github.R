@@ -11,27 +11,48 @@ issue_closed <- function(note, repo) {
     issue_number = repository$pull
     )
 
+  gh_response <-
   gh::gh(
     endpoint = "/repos/{owner}/{repo}/issues/{issue_number}",
     .params = params
     )
 
-  stop
+  issue_state <- gh_response$state
+
+  if(issue_state == "closed") {
+    stop(note, "has been resolved")
+  }
+
+  invisible(issue_state)
+
 }
 
-#' error if a pull request is merged
+#' trigger error if a PR is merged
 #'
-#' param
+#' @param note explain yourself
+#' @param repo a github repository, in remotes shorthand
 pr_merged <- function(note, repo) {
+
   repository <- remotes::parse_repo_spec(repo)
+
   params <- list(
-    owner = repository$username,
-    repo = repository$repo,
+    owner       = repository$username,
+    repo        = repository$repo,
     pull_number = repository$pull
   )
 
+  gh_response <-
   gh::gh(
-    endpoint = "/repos/{owner}/{repo}/pulls/{pull_number}"
+    endpoint = "/repos/{owner}/{repo}/pulls/{pull_number}",
+    .params = params
   )
+
+  issue_state <- gh_response$state
+
+  if(issue_state == "closed") {
+    stop(note, " has been merged")
+  }
+
+  invisible(issue_state)
 
 }
