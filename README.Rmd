@@ -16,7 +16,9 @@ knitr::opts_chunk$set(
 # Todo Or Die
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/todoordie)](https://CRAN.R-project.org/package=todoordie)
+
+[![CRAN status](https://www.r-pkg.org/badges/version/todoordie)](https://CRAN.R-project.org/package=todoordie) [![R-CMD-check](https://github.com/edavidaja/todoordie/workflows/R-CMD-check/badge.svg)](https://github.com/edavidaja/todoordie/actions)
+
 <!-- badges: end -->
 
 Write TODOs in Code That Ensure You Actually Do Them
@@ -29,10 +31,30 @@ You can install the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("edavidaja/todoordie")
 ```
-## Example
 
-```{r example, error=TRUE}
+## Usage
+
+Use the functions directly:
+
+```{r date, error=TRUE}
 todoordie::after_date("fix after conf 2021", "2021-01-21")
+```
+
+```{r github, error=TRUE}
+todoordie::issue_closed("rewrite once dtplyr supports across()", "tidyverse/dtplyr#154")
+```
+
+```{r cran, error=TRUE}
+todoordie::cran_version("can't use in production before 1.0 :eyeroll:", "plumber", "1.0.0")
+```
+
+If you'd prefer for them to live in your function documentation, you can also use them as roxgyen tags:
+
+``` r
+#' sketchy function 
+#'
+#' @todoordie after_date 2012-12-21 if we're not all dead make this less sketchy
+sketchy <- function() {}
 ```
 
 ## Prior art:
@@ -41,4 +63,4 @@ todoordie::after_date("fix after conf 2021", "2021-01-21")
 [Rust](https://github.com/davidpdrsn/todo-or-die)  
 [Python](https://github.com/achedeuzot/py-todo-or-die)  
 [Elixir](https://hex.pm/packages/credo_todo_or_die)  
-[Typescript](https://github.com/ngnijland/typescript-todo-or-die-plugin)  
+[Typescript](https://github.com/ngnijland/typescript-todo-or-die-plugin)

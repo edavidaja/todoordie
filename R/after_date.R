@@ -6,7 +6,6 @@
 #'
 #' @export
 after_date <- function(note, due_at) {
-
   current_date <- Sys.Date()
   compare_date <- as.Date(due_at)
 
@@ -25,4 +24,3 @@ after_date <- function(note, due_at) {
 
   invisible(current_date)
 }
-
