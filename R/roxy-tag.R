@@ -13,21 +13,37 @@ roxy_tag_parse.roxy_tag_todoordie <- function(x) {
   first_word <- split_todo[[1]][1]
 
   vals <- todo_condition(first_word, raw_todo, split_todo)
-  x$val <- vals
+  x$val <- c(todo_type = first_word, vals)
 
   x
 }
 
+#' roclet for todoordie tags
+#'
+#' @importFrom roxygen2 roclet roclet roclet_process roclet_output
+#' @export
 todoordie_roclet <- function() {
   roclet("todoordie")
 }
 
+#' @importFrom roxygen2 block_get_tags
+#' @export
 roclet_process.roclet_todoordie <- function(x, blocks, env, base_path) {
+  results <- list()
 
+  for (block in blocks) {
+    tags <- block_get_tags(block, "todoordie")
+
+    tags
+  }
+
+  results
 }
 
+#' @export
 roclet_output.roclet_todoordie <- function(x, results, base_path, ...) {
 
+  invisible(NULL)
 }
 
 todo_condition <- function(condition, raw_todo, split_todo) {
@@ -80,8 +96,8 @@ parse_cran_version <- function(cran_version_raw, cran_version_split) {
   todo_text <- extract_todo_text(4, cran_version_split)
 
   list(
-    package_name = cran_version_split[[1]][1],
-    package_version = cran_version_split[[1]][2],
+    package_name = cran_version_split[[1]][2],
+    package_version = cran_version_split[[1]][3],
     todo_text = todo_text
   )
 }

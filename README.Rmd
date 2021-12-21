@@ -57,6 +57,8 @@ If you'd prefer for them to live in your function documentation, you can also us
 sketchy <- function() {}
 ```
 
+expired todos should error when you document.
+
 ## Prior art:
 
 [Ruby](https://github.com/searls/todo_or_die)  
