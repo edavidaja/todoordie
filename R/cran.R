@@ -26,15 +26,13 @@ pkg_version <- function(info) {
 #' @return the version number of the package on cran, invisibly
 #'
 #' @export
-cran_version <- function(note, package, version) {
-
+cran_version <- function(package, version, note) {
   package_info <- pkg_info(package)
   package_version <- pkg_version(package_info)
 
   if (package_version > version) {
-    stop(note, "has exceeded version", version)
+    stop(note, " has exceeded version ", version)
   }
 
   return(invisible(package_version))
-
 }

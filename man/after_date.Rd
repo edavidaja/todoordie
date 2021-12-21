@@ -4,12 +4,12 @@
 \alias{after_date}
 \title{trigger error if after a certain date}
 \usage{
-after_date(note, due_at)
+after_date(due_at, note)
 }
 \arguments{
-\item{note}{explain yourself}
-
 \item{due_at}{an ISO-8601 formatted date}
+
+\item{note}{explain yourself}
 }
 \value{
 the current date, invisibly

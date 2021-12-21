@@ -5,7 +5,7 @@
 #' @return the current date, invisibly
 #'
 #' @export
-after_date <- function(note, due_at) {
+after_date <- function(due_at, note) {
   current_date <- Sys.Date()
   compare_date <- as.Date(due_at)
 

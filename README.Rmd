@@ -37,15 +37,15 @@ devtools::install_github("edavidaja/todoordie")
 Use the functions directly:
 
 ```{r date, error=TRUE}
-todoordie::after_date("fix after conf 2021", "2021-01-21")
+todoordie::after_date("2021-01-21", "fix after conf 2021")
 ```
 
 ```{r github, error=TRUE}
-todoordie::issue_closed("rewrite once dtplyr supports across()", "tidyverse/dtplyr#154")
+todoordie::issue_closed("tidyverse/dtplyr#154", "rewrite once dtplyr supports across()")
 ```
 
 ```{r cran, error=TRUE}
-todoordie::cran_version("can't use in production before 1.0 :eyeroll:", "plumber", "1.0.0")
+todoordie::cran_version("plumber", "1.0.0", "no 0.* in production")
 ```
 
 If you'd prefer for them to live in your function documentation, you can also use them as roxgyen tags:
@@ -56,6 +56,8 @@ If you'd prefer for them to live in your function documentation, you can also us
 #' @todoordie after_date 2012-12-21 if we're not all dead make this less sketchy
 sketchy <- function() {}
 ```
+
+expired todos should produce errors when you run `devtools::document()`.
 
 ## Prior art:
 

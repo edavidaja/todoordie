@@ -4,12 +4,12 @@
 \alias{issue_closed}
 \title{trigger error if an issue is closed}
 \usage{
-issue_closed(note, repo)
+issue_closed(repo, note)
 }
 \arguments{
-\item{note}{explain yourself}
-
 \item{repo}{a github repository, in remotes shorthand}
+
+\item{note}{explain yourself}
 }
 \description{
 trigger error if an issue is closed
