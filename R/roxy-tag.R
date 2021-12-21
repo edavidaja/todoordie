@@ -65,7 +65,7 @@ parse_issue_closed <- function(issue_closed_raw, issue_closed_split) {
 
 parse_pr_merged <- function(pr_closed_raw, pr_closed_split) {
 
-  repo_spec <- extract_repo_spec(issue_closed_split[[1]][2])
+  repo_spec <- extract_repo_spec(pr_closed_split[[1]][2])
   names(repo_spec)[[3]] <- "pull_number"
 
   todo_text <- extract_todo_text(3, pr_closed_split)
@@ -77,7 +77,7 @@ parse_pr_merged <- function(pr_closed_raw, pr_closed_split) {
 }
 
 parse_cran_version <- function(cran_version_raw, cran_version_split) {
-  extract_todo_text(4, cran_version_split)
+  todo_text <- extract_todo_text(4, cran_version_split)
 
   list(
     package_name = cran_version_split[[1]][1],
