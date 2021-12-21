@@ -1,24 +1,24 @@
 test_that("succeeds if issue is still open", {
-  expect_invisible(issue_closed("first issue", "edavidaja/todoordie#1"))
+  expect_invisible(issue_closed("edavidaja/todoordie#1", "first issue"))
 })
 
 test_that("fails if issue is closed", {
   expect_error(
     issue_closed(
-      "Bob Barker called.",
-      "edavidaja/todoordie#2"
+      "edavidaja/todoordie#2",
+      "Bob Barker called."
       )
     )
 })
 
 test_that("succeds if PR is stil open", {
   expect_invisible(
-    pr_merged("delete code", "edavidaja/todoordie#3")
+    pr_merged("edavidaja/todoordie#3", "delete code")
   )
 })
 
 test_that("fails if PR is closed", {
   expect_error(
-    pr_merged("dtplyr support for lead/lag", "tidyverse/dtplyr#277")
+    pr_merged("tidyverse/dtplyr#277", "dtplyr support for lead/lag")
   )
 })

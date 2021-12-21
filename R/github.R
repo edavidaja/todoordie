@@ -4,7 +4,7 @@
 #' @param repo a github repository, in remotes shorthand
 #'
 #' @export
-issue_closed <- function(note, repo) {
+issue_closed <- function(repo, note) {
   params <- extract_repo_spec(repo)
 
   gh_response <-
@@ -28,7 +28,7 @@ issue_closed <- function(note, repo) {
 #' @param repo a github repository, in remotes shorthand
 #'
 #' @export
-pr_merged <- function(note, repo) {
+pr_merged <- function(repo, note) {
   params <- extract_repo_spec(repo)
   names(params)[[3]] <- "pull_number"
 

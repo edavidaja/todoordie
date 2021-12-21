@@ -28,18 +28,18 @@ devtools::install_github("edavidaja/todoordie")
 Use the functions directly:
 
 ``` r
-todoordie::after_date("fix after conf 2021", "2021-01-21")
-#> Error in todoordie::after_date("fix after conf 2021", "2021-01-21"): fix after conf 2021 was due on 2021-01-21
+todoordie::after_date("2021-01-21", "fix after conf 2021")
+#> Error in todoordie::after_date("2021-01-21", "fix after conf 2021"): fix after conf 2021 was due on 2021-01-21
 ```
 
 ``` r
-todoordie::issue_closed("rewrite once dtplyr supports across()", "tidyverse/dtplyr#154")
-#> Error in todoordie::issue_closed("rewrite once dtplyr supports across()", : rewrite once dtplyr supports across()has been resolved
+todoordie::issue_closed("tidyverse/dtplyr#154", "rewrite once dtplyr supports across()")
+#> Error in todoordie::issue_closed("tidyverse/dtplyr#154", "rewrite once dtplyr supports across()"): rewrite once dtplyr supports across()has been resolved
 ```
 
 ``` r
-todoordie::cran_version("can't use in production before 1.0 :eyeroll:", "plumber", "1.0.0")
-#> Error in todoordie::cran_version("can't use in production before 1.0 :eyeroll:", : can't use in production before 1.0 :eyeroll:has exceeded version1.0.0
+todoordie::cran_version("plumber", "1.0.0", "no 0.* in production")
+#> Error in todoordie::cran_version("plumber", "1.0.0", "no 0.* in production"): no 0.* in productionhas exceeded version1.0.0
 ```
 
 If you’d prefer for them to live in your function documentation, you can

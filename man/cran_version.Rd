@@ -4,14 +4,14 @@
 \alias{cran_version}
 \title{check whether cran version is greater than stated}
 \usage{
-cran_version(note, package, version)
+cran_version(package, version, note)
 }
 \arguments{
-\item{note}{explain yourself}
-
 \item{package}{package name}
 
 \item{version}{version to compare}
+
+\item{note}{explain yourself}
 }
 \value{
 the version number of the package on cran, invisibly

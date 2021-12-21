@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @importFrom roxygen2 roxy_tag_parse
-#' @importFrom stringr str_split str_extract boundary
+#' @importFrom stringr str_split str_extract
 roxy_tag_parse.roxy_tag_todoordie <- function(x) {
   raw_todo <- x$raw
   split_todo <- str_split(x$raw, "[:space:]")
@@ -18,7 +18,7 @@ roxy_tag_parse.roxy_tag_todoordie <- function(x) {
   x
 }
 
-roclet_todoordie <- function() {
+todoordie_roclet <- function() {
   roclet("todoordie")
 }
 
