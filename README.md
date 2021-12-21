@@ -34,12 +34,12 @@ todoordie::after_date("2021-01-21", "fix after conf 2021")
 
 ``` r
 todoordie::issue_closed("tidyverse/dtplyr#154", "rewrite once dtplyr supports across()")
-#> Error in todoordie::issue_closed("tidyverse/dtplyr#154", "rewrite once dtplyr supports across()"): rewrite once dtplyr supports across()has been resolved
+#> Error in todoordie::issue_closed("tidyverse/dtplyr#154", "rewrite once dtplyr supports across()"): rewrite once dtplyr supports across() has been resolved
 ```
 
 ``` r
 todoordie::cran_version("plumber", "1.0.0", "no 0.* in production")
-#> Error in todoordie::cran_version("plumber", "1.0.0", "no 0.* in production"): no 0.* in productionhas exceeded version1.0.0
+#> Error in todoordie::cran_version("plumber", "1.0.0", "no 0.* in production"): no 0.* in production has exceeded version 1.0.0
 ```
 
 If you’d prefer for them to live in your function documentation, you can
@@ -51,6 +51,8 @@ also use them as roxgyen tags:
 #' @todoordie after_date 2012-12-21 if we're not all dead make this less sketchy
 sketchy <- function() {}
 ```
+
+expired todos should produce errors when you run `devtools::document()`.
 
 ## Prior art:
 

@@ -57,7 +57,7 @@ If you'd prefer for them to live in your function documentation, you can also us
 sketchy <- function() {}
 ```
 
-expired todos should error when you document.
+expired todos should produce errors when you run `devtools::document()`.
 
 ## Prior art:
 

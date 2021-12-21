@@ -31,7 +31,7 @@ cran_version <- function(package, version, note) {
   package_version <- pkg_version(package_info)
 
   if (package_version > version) {
-    stop(note, "has exceeded version", version)
+    stop(note, " has exceeded version ", version)
   }
 
   return(invisible(package_version))

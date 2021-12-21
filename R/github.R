@@ -16,7 +16,7 @@ issue_closed <- function(repo, note) {
   issue_state <- gh_response$state
 
   if (issue_state == "closed") {
-    stop(note, "has been resolved")
+    stop(note, " has been resolved")
   }
 
   invisible(issue_state)
