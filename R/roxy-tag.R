@@ -34,7 +34,9 @@ roclet_process.roclet_todoordie <- function(x, blocks, env, base_path) {
   for (block in blocks) {
     tags <- block_get_tags(block, "todoordie")
 
-    tags
+    for (tag_idx in seq_along(tags)) {
+      results[[tag_idx]] <- tags[[tag_idx]]$val
+    }
   }
 
   results
@@ -42,7 +44,16 @@ roclet_process.roclet_todoordie <- function(x, blocks, env, base_path) {
 
 #' @export
 roclet_output.roclet_todoordie <- function(x, results, base_path, ...) {
-
+  for (idx in seq_along(results)) {
+    res <- results[[idx]]
+    switch(
+      res$todo_type,
+      after_date = after_date(res$matched_date, res$todo_text),
+      issue_closed = issue_closed(res$repo, res$todo_text),
+      pr_merged = pr_merged(res$repo, res$todo_text),
+      cran_version = cran_version(res$package_name, res$package_version, res$todo_text)
+    )
+  }
   invisible(NULL)
 }
 
@@ -56,7 +67,6 @@ todo_condition <- function(condition, raw_todo, split_todo) {
 }
 
 parse_after_date <- function(after_date_raw, after_date_split) {
-
   date_regex <- "[0-9]{4}-[0-9]{2}-[0-9]{2}"
   matched_date <- str_extract(after_date_raw, date_regex)
 
@@ -70,10 +80,12 @@ parse_after_date <- function(after_date_raw, after_date_split) {
 
 parse_issue_closed <- function(issue_closed_raw, issue_closed_split) {
 
-  repo_spec <- extract_repo_spec(issue_closed_split[[1]][2])
+  repo <- issue_closed_split[[1]][2]
+  repo_spec <- extract_repo_spec(repo)
   todo_text <- extract_todo_text(3, issue_closed_split)
 
   c(
+    repo = repo,
     repo_spec,
     todo_text = todo_text
   )
@@ -81,12 +93,14 @@ parse_issue_closed <- function(issue_closed_raw, issue_closed_split) {
 
 parse_pr_merged <- function(pr_closed_raw, pr_closed_split) {
 
-  repo_spec <- extract_repo_spec(pr_closed_split[[1]][2])
+  repo <- pr_closed_split[[1]][2]
+  repo_spec <- extract_repo_spec(repo)
   names(repo_spec)[[3]] <- "pull_number"
 
   todo_text <- extract_todo_text(3, pr_closed_split)
 
   c(
+    repo = repo,
     repo_spec,
     todo_text = todo_text
   )
